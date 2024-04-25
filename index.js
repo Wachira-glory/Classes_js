@@ -20,21 +20,38 @@ console.log(toyota.isAvailable);
 // ● renterName (string): The name of the person who rented the car. ● rentalStartDate (Date object): The start date of the rental period. ● rentalEndDate
 // (Date object): The end date of the rental period.
 // The Rental class or function constructor should also have a method called calculateRentalDuration that returns the rental duration in days.
-class Rental {
-    constructor(car, renterName, rentalStartDate, rentalEndDate) {
-      this.car = car;
-      this.renterName = renterName;
-      this.rentalStartDate = rentalStartDate;
-      this.rentalEndDate = rentalEndDate;
-    }
-    calculateRentalDuration() {
+// class Rental {
+//     constructor(car, renterName, rentalStartDate, rentalEndDate) {
+//       this.car = car;
+//       this.renterName = renterName;
+//       this.rentalStartDate = rentalStartDate;
+//       this.rentalEndDate = rentalEndDate;
+//     }
+//     calculateRentalDuration() {
+//       const time = this.rentalEndDate - this.rentalStartDate;
+//       const days = Math.ceil(time / (1000 * 60 * 60 * 24));
+//       return days;
+//     }
+//   }
+//   const subaru = new Car("Toyota", "Camry", 2009, true);
+//   const subaru2 = new Rental(subaru, "Benz", new Date("2022-01-01"), new Date("2022-01-10"));
+//   console.log(subaru2.calculateRentalDuration());
+
+function Rental(car, renterName, rentalStartDate, rentalEndDate) {
+    this.car = car;
+    this.renterName = renterName;
+    this.rentalStartDate = rentalStartDate;
+    this.rentalEndDate = rentalEndDate;
+  
+    this.calculateRentalDuration = function() {
       const time = this.rentalEndDate - this.rentalStartDate;
       const days = Math.ceil(time / (1000 * 60 * 60 * 24));
       return days;
     }
   }
+  
   const subaru = new Car("Toyota", "Camry", 2009, true);
-  const subaru2 = new Rental(subaru, "Benz", new Date("2022-01-01"), new Date("2022-01-10"));
+  const subaru2 = new Rental(subaru, "Volvo", new Date("2022-01-01"), new Date("2022-01-10"));
   console.log(subaru2.calculateRentalDuration());
 // 3) Create an instance of the Car class or function constructor for a car in the inventory. Then, create an instance of the Rental class or function constructor
 // for a rental involving the car you created. Finally, calculate the rental duration using the calculateRentalDuration method.
@@ -96,5 +113,5 @@ myQuiz.addQuestion(question2);
 myQuiz.submitAnswer("Robert");
 myQuiz.submitAnswer("Kakamega");
 myQuiz.nextQuestion();
-myQuiz.submitAnswer("NAdalab");
+myQuiz.submitAnswer("Adalab");
 console.log(`Your final score is: ${myQuiz.score}`);
